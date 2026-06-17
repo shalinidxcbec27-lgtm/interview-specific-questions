@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class Main {
+    
+    // Core Function required by the task description
+    public static String CustomCaesarCipher(int key, String message) {
+        // Validation: Any key value less than 0 returns INVALID INPUT
+        if (key < 0) {
+            return "INVALID INPUT";
+        }
+        
+        StringBuilder result = new StringBuilder();
+        
+        // Scan the message character by character
+        for (int i = 0; i < message.length(); i++) {
+            char ch = message.charAt(i);
+            
+            // 1. Handle Uppercase alphabets (A-Z)
+            if (ch >= 'A' && ch <= 'Z') {
+                char encrypted = (char) ((ch - 'A' + key) % 26 + 'A');
+                result.append(encrypted);
+            } 
+            // 2. Handle Lowercase alphabets (a-z)
+            else if (ch >= 'a' && ch <= 'z') {
+                char encrypted = (char) ((ch - 'a' + key) % 26 + 'a');
+                result.append(encrypted);
+            } 
+            // 3. Handle Numeric Digits (0-9)
+            else if (ch >= '0' && ch <= '9') {
+                char encrypted = (char) ((ch - '0' + key) % 10 + '0');
+                result.append(encrypted);
+            } 
+            // 4. Leave spaces, hyphens, and other characters untouched
+            else {
+                result.append(ch);
+            }
+        }
+        
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        // Read string input from the terminal
+        System.out.print("Enter your PlainText: ");
+        String message = in.nextLine();
+        
+        // Read cipher shift offset key
+        System.out.print("Enter the Key: ");
+        int key = in.nextInt();
+        
+        // Execute the custom encryption function
+        String encryptedText = CustomCaesarCipher(key, message);
+        
+        System.out.println("The encrypted Text is: " + encryptedText);
+        
+        in.close();
+    }
+}
