@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class HammingDist {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int x = in.nextInt();
+        int y = in.nextInt();
+        int xor = x ^ y;
+        int distance = 0;
+        while (xor > 0) {
+            distance++;
+            xor &= (xor - 1);
+        }
+        System.out.println(distance);
+        in.close();
+    }
+}
