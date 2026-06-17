@@ -1,0 +1,46 @@
+//using build-in function
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String str = in.nextLine();
+        
+        // Pass the string to StringBuilder and call reverse()
+        String reversed = new StringBuilder(str).reverse().toString();
+        
+        System.out.print("Reversed (with StringBuilder): " + reversed);
+        
+        in.close();
+    }
+}
+//using xor function
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = in.nextLine();
+        
+        char[] arr = str.toCharArray();
+        int left = 0;
+        int right = arr.length - 1;
+        
+        // Minimum Iterations: Runs exactly N/2 times
+        while (left < right) {
+            // Bitwise XOR swap logic eliminates the temp variable entirely
+            arr[left] ^= arr[right];
+            arr[right] ^= arr[left];
+            arr[left] ^= arr[right];
+            
+            left++;
+            right--;
+        }
+        
+        System.out.println("Reversed (without temp): " + new String(arr));
+        in.close();
+    }
+}
