@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class CoreQ5 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s1 = in.next();
+        String s2 = in.next();
+        int i = 0, j = 0;
+        while (i < s1.length() && j < s2.length()) {
+            if (s1.charAt(i) == s2.charAt(j)) {
+                i++;
+            }
+            j++;
+        }
+        System.out.println(i == s1.length() ? "True" : "False");
+        in.close();
+    }
+}
