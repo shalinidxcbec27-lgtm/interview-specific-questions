@@ -1,0 +1,46 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+class SalaryCalculator {
+  
+    public static double calculateGross(double basic, double allowance) {
+        return basic + allowance;
+    }
+
+    public static double calculateNet(double grossSalary, double deduction) {
+        return grossSalary - deduction;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+  
+        System.out.print("Enter Basic Salary: ");
+        double basic = in.nextDouble();
+
+        System.out.print("Enter Allowance: ");
+        double allowance = in.nextDouble();
+
+        System.out.print("Enter Deduction: ");
+        double deduction = in.nextDouble();
+
+        System.out.println("\n--- Salary Statement ---");
+
+        double gross = SalaryCalculator.calculateGross(basic, allowance);
+        double net = SalaryCalculator.calculateNet(gross, deduction);
+
+        System.out.println("Gross Salary = " + (int)gross);
+        System.out.println("Net Salary = " + (int)net);
+
+        in.close();
+    }
+}
