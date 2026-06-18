@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Main {
+
+  
+    public static boolean isKPowerK(int number) {
+        if (number <= 0) return false;
+        
+        long k = 1;
+        while (true) {
+            long result = (long) Math.pow(k, k);
+            if (result == number) {
+                return true;  
+            }
+            if (result > number) {
+                return false;
+            }
+            k++;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        System.out.print("Enter N: ");
+        int n = in.nextInt();
+        
+       
+        if (isKPowerK(n)) {
+            System.out.println("Yes");
+            in.close();
+            return;
+        }
+
+        boolean possible = false;
+        
+        
+        int temp = n;
+        while (temp > 0) {
+            int d = temp % 10; // Grabs the last digit
+            temp = temp / 10;  // Removes the last digit
+            
+           
+            if (d == 0) {
+                continue; 
+            }
+
+          
+            int remainder = n - (d * d);
+
+           
+            if (remainder >= 0 && isKPowerK(remainder)) {
+                possible = true;
+                break; 
+            }
+        }
+
+      
+        if (possible) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+
+        in.close();
+    }
+}
