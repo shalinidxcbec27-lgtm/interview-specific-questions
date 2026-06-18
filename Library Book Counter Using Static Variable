@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class Book {
+   
+    String title; 
+    
+
+    static int totalBooks = 0; 
+
+  
+    public Book(String title) {
+        this.title = title;
+        totalBooks++; // Add 1 to the shared library counter
+        
+       
+        System.out.println("Book Added");
+        System.out.println("Total Books: " + totalBooks + "\n");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        System.out.print("Enter number of books to add: ");
+        int booksToAdd = in.nextInt();
+        in.nextLine();
+        
+        System.out.println(); // Print a blank line for formatting
+        
+       
+        for (int i = 1; i <= booksToAdd; i++) {
+            System.out.print("Enter title for book " + i + ": ");
+            String title = in.nextLine();
+            
+            // Creating the object triggers the static counter and prints the message
+            new Book(title); 
+        }
+        
+        in.close();
+    }
+}
