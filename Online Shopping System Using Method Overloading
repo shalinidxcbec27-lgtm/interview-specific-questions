@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+class ShoppingSystem {
+
+    
+    public void purchaseProduct(String name) {
+     
+        System.out.println("Product: " + name + " Quantity: 1 "+" Discount applied: None");
+    }
+    
+    public void purchaseProduct(String name, int quantity) {
+      
+        System.out.println("Product: " + name + " Quantity: " + quantity + " Discount applied: None");
+      
+    }
+
+ 
+    public void purchaseProduct(String name, int quantity, String discountCode) {
+      
+        System.out.println("Product: " + name + " Quantity: " + quantity + " Discount Code: " + discountCode);
+       
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+       
+        ShoppingSystem shop = new ShoppingSystem();
+
+    
+        shop.purchaseProduct("Wireless Mouse");
+
+      
+        shop.purchaseProduct("Gaming Keyboard", 3);
+
+      
+        shop.purchaseProduct("Sony Headphones", 2, "SAVE20");
+    }
+}
