@@ -1,0 +1,31 @@
+import java.util.*;
+//import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        System.out.print("Enter a sentence: ");
+        String input = in.nextLine();
+        
+     
+        String[] words = input.split(" ");
+        
+      
+        LinkedHashSet<String> uniqueWords = new LinkedHashSet<>();
+        for (String word : words) {
+            uniqueWords.add(word); 
+        }
+        
+      
+        StringBuilder result = new StringBuilder();
+        for (String word : uniqueWords) {
+            result.append(word).append(" ");
+        }
+        
+       
+        System.out.println("Sample Output: " + result.toString().trim());
+        
+        in.close();
+    }
+}
