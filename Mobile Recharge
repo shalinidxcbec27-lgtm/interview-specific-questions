@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+class MobilePlan {
+    int amount;
+    int validity;
+    String dataPack;
+
+    
+    public MobilePlan(int amount) {
+        this.amount = amount;
+        this.validity = 0;       
+        this.dataPack = "None";  
+    }
+
+    
+    public MobilePlan(int amount, int validity) {
+        this.amount = amount;
+        this.validity = validity;
+        this.dataPack = "None";   
+    }
+
+    
+    public MobilePlan(int amount, int validity, String dataPack) {
+        this.amount = amount;
+        this.validity = validity;
+        this.dataPack = dataPack;
+    }
+
+
+    public void displayPlanDetails() {
+        System.out.println("Recharge Amount: " + this.amount);
+        
+        if (this.validity > 0) {
+            System.out.println("Validity: " + this.validity + " Days");
+        }
+        
+        if (!this.dataPack.equals("None")) {
+            System.out.println("Data Pack: " + this.dataPack);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        System.out.print("Enter plan details: ");
+        String input = in.nextLine().trim();
+      
+        if (input.contains("199")) {
+           
+            MobilePlan plan1 = new MobilePlan(199);
+            plan1.displayPlanDetails();
+        } 
+        else if (input.contains("299")) {
+           
+            MobilePlan plan2 = new MobilePlan(299, 28);
+            plan2.displayPlanDetails();
+        } 
+        else if (input.contains("399")) {
+            
+            MobilePlan plan3 = new MobilePlan(399, 56, "2GB/day");
+            plan3.displayPlanDetails();
+        } 
+        else {
+            System.out.println("Error: Plan profile not found in registration logs.");
+        }
+        
+        in.close();
+    }
+}
