@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        System.out.print("Enter size of array: ");
+        int n = in.nextInt();
+        
+        int[] nums = new int[n];
+        System.out.println("Enter " + n + " integers:");
+        for (int i = 0; i < n; i++) {
+            nums[i] = in.nextInt();
+        }
+        
+       
+        int sum = 0;
+       
+        int max = nums[0];
+        int min = nums[0];
+        
+        
+        for (int i = 0; i < n; i++) {
+            int current = nums[i];
+            
+            sum += current; 
+            
+            if (current > max) {
+                max = current;
+            }
+            
+            if (current < min) {
+                min = current;
+            }
+        }
+        
+      
+        double average = (double) sum / n;
+        
+       
+        System.out.println("\nSample Output:");
+        System.out.println("Sum = " + sum);
+        System.out.println("Average = " + average);
+        System.out.println("Maximum = " + max);
+        System.out.println("Minimum = " + min);
+        
+        in.close();
+    }
+}
